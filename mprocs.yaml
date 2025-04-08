@@ -2,10 +2,10 @@ procs:
   supersim:
     cwd: .
     shell: pnpm dev:supersim
-  supersim-chain-901:
+  supersim-l2a-logs:
     cwd: supersim-logs
     shell: pnpm wait-port http://:8420/ready && tail -f anvil-901.log
-  supersim-chain-902:
+  supersim-l2b-logs:
     cwd: supersim-logs
     shell: pnpm wait-port http://:8420/ready && tail -f anvil-902.log
   frontend:

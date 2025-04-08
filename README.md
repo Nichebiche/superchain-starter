@@ -123,7 +123,7 @@ pnpm build:contracts
 
 ### Tools
 
-- **[supersim](https://github.com/ethereum-optimism/supersim)**: Local test environment with 1 L1 and multiple L2 chains, includes pre-deployed Superchain contracts
+- **[supersim](https://github.com/ethereum-optimism/supersim)**: Local test environment with 1 L1 and multiple L2 chains, includes pre-deployed Superchain contracts and manages local Anvil instances for you
 - **[sup (super-cli)](https://github.com/ethereum-optimism/super-cli)**: Deploy and verify contracts across multiple chains, with sponsored transactions
 - **foundry**: Blazing fast smart contract development framework
 - **wagmi / viem**: Best in class Typescript library for the EVM,
@@ -139,7 +139,7 @@ superchain-starter/
 ├── src/                        # Frontend code (vite, tailwind, shadcn, wagmi, viem)
 │   └── App.tsx                # Main application component
 ├── public/                     # Static assets for the frontend
-├── supersim-logs/             # Local supersim logs
+├── supersim-logs/             # Local supersim logs (Anvil instances managed by Supersim)
 ├── package.json               # Project dependencies and scripts
 └── mprocs.yaml               # Run multiple commands using mprocs
 ```
@@ -164,7 +164,21 @@ Use the error selectors below to identify the cause of reverts.
   - `MessageAlreadyRelayed`: `0x9ca9480b`
   - `Unauthorized()`: `0x82b42900`
  
- 
+## 💻 About Supersim
+
+This project uses [Supersim](https://github.com/ethereum-optimism/supersim) to provide a local development environment for Superchain development. Supersim:
+
+- Creates a local L1 chain and multiple L2 chains with all necessary Superchain contracts pre-deployed
+- Manages Anvil instances (Ethereum nodes) for each chain internally
+- Provides automatic message relaying between chains with the `--interop.autorelay` flag
+- Simplifies testing cross-chain interactions without needing to manually set up infrastructure
+
+When you run `pnpm dev`, Supersim automatically:
+1. Starts a local L1 Ethereum chain
+2. Starts multiple L2 chains connected to the L1
+3. Deploys all required Superchain system contracts
+4. Enables cross-chain messaging between all chains
+
 ## 📚 More resources
 
 - Interop recipes / guides: https://docs.optimism.io/app-developers/tutorials/interop
