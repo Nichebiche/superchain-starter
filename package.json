@@ -23,7 +23,7 @@
     "shadcn:add": "pnpm dlx shadcn@canary add"
   },
   "dependencies": {
-    "@eth-optimism/viem": "^0.3.2",
+    "@eth-optimism/viem": "^0.4.4",
     "@radix-ui/react-separator": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.2",
     "@tailwindcss/vite": "^4.0.6",
